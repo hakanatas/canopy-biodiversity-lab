@@ -1,0 +1,29 @@
+3D models used in Canopy — Biodiversity Field Lab
+=================================================
+
+bee.glb          "Animated Bee" by sikoro
+                 CC-BY 4.0 — https://skfb.ly/oF6Mx
+
+wasp.glb         "Vespula Vulgaris (wasp)" by Nobilis the Palaeovespa
+                 CC-BY 4.0 — https://skfb.ly/pz6BI
+
+moth.glb         "Animated Peacock Moth" by Osian CG
+                 CC-BY 4.0 — https://skfb.ly/pwPwG
+
+butterfly.glb    "BUTTERFLY" by Rukh3D
+                 CC-BY 4.0 — https://skfb.ly/oGZZW
+
+hummingbird.glb  "Hummingbird Flying020" by SabininAA
+                 CC-BY 4.0 — https://skfb.ly/oFvUO
+
+bat.glb          "Bat (Low Poly, Animated, Rigged)" by danielvanderkaaden
+                 CC-BY 4.0 — https://skfb.ly/6WEYy
+
+beetle.glb       "Rhinoceros Beetle (Golofa Sp)" by RISD Nature Lab
+                 CC-BY 4.0 — https://skfb.ly/oxBUC
+
+All models are Creative Commons Attribution (CC-BY); attribution is also shown
+in-app at the bottom-right of the viewer. The *_polygoogle_backup.glb files are
+the previous placeholder models, kept only as a fallback.
+
+Licenses: http://creativecommons.org/licenses/by/4.0/

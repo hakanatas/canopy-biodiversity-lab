@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canopy — Biodiversity Field Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital@0;1&family=Caveat:wght@600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.js" } }
+</script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ LEFT SIDEBAR ============ -->
+  <aside id="sidebar">
+    <div class="brand">
+      <span class="brand-mark">🌿</span>
+      <div class="brand-txt">
+        <h1 class="brand-name"><span id="brandName">Canopy</span> <em>Lab</em></h1>
+        <div class="brand-sub" id="brandSub">Biodiversity Field Lab</div>
+      </div>
+      <div class="lang" id="langToggle">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="tr">TR</button>
+      </div>
+    </div>
+    <div class="season" id="seasonTag">FIRST® CANOPY · 2026–27</div>
+
+    <div class="poll-head">
+      <span id="pollHead">Pollinators</span>
+      <span class="poll-count" id="pollCount"></span>
+    </div>
+
+    <nav id="pollList"></nav>
+
+    <div class="discovery">
+      <div class="disc-title" id="discTitle">Today's Discovery</div>
+      <p id="discText"></p>
+      <span class="disc-vial">🧪</span>
+    </div>
+
+    <div class="rail" id="rail">
+      <button class="rail-btn" data-r="home"><span>⌂</span><em></em></button>
+      <button class="rail-btn active" data-r="explore"><span>◎</span><em></em></button>
+      <button class="rail-btn" data-r="notes"><span>✎</span><em></em></button>
+      <button class="rail-btn" data-r="garden"><span>❦</span><em></em></button>
+      <button class="rail-btn" data-r="learn"><span>✿</span><em></em></button>
+    </div>
+  </aside>
+
+  <!-- ============ CENTER STAGE ============ -->
+  <main id="stage">
+    <header id="toolbar">
+      <button class="back" id="backBtn">‹ Back to Collection</button>
+      <div class="tab" id="topTab">
+        <div class="tab-name" id="topName">Orchid Bee</div>
+        <div class="tab-latin" id="topLatin">Euglossa dilemma</div>
+      </div>
+      <div class="tools">
+        <div class="stamp" id="stamp">Bee<br>Spotlight</div>
+        <button class="tool" id="tNotebook">▤ Notebook</button>
+        <button class="tool" id="tCompare">⇄ Compare</button>
+        <button class="tool" id="tShare">↗ Share</button>
+      </div>
+    </header>
+
+    <div id="viewport">
+      <canvas id="scene"></canvas>
+      <div id="loading">Preparing specimen…</div>
+      <div class="dotline"></div>
+      <a class="credit" href="https://poly.pizza" target="_blank" rel="noopener">3D: Poly by Google · CC-BY</a>
+    </div>
+
+    <div id="viewerBar">
+      <button id="resetView" title="Reset rotation">↺</button>
+      <span class="deg" id="degVal">0°</span>
+      <input type="range" id="rot" min="0" max="360" value="0">
+      <button id="zoomOut" title="Zoom out">−</button>
+      <button id="zoomIn" title="Zoom in">+</button>
+      <button id="autoRotate" class="active" title="Auto-rotate">◈</button>
+      <button id="fs" title="Fullscreen">⛶</button>
+    </div>
+
+    <div class="quote" id="quote">"In every flower, a story. In every pollinator, a connection."</div>
+  </main>
+
+  <!-- ============ RIGHT FIELD-GUIDE PANEL ============ -->
+  <aside id="panel">
+    <div class="pin">📌</div>
+    <div class="guide-card"><span id="guideLbl">Field Guide</span><br><em id="guideNo">No. 07</em><br><span class="guide-ico">🐝</span></div>
+
+    <div class="fam-tag" id="famTag">Apidae Family</div>
+    <h2 class="sp-name" id="spName">Orchid Bee</h2>
+    <div class="sp-latin" id="spLatin">Euglossa dilemma</div>
+
+    <div class="chips" id="chips"></div>
+
+    <div class="strata" id="strata">
+      <div class="strata-head" id="strataHead">Forest Layer</div>
+      <div class="strata-rows" id="strataRows"></div>
+    </div>
+
+    <div class="facts" id="facts"></div>
+
+    <div class="flowerfit">
+      <div class="ff-head"><span id="ffHead">Flower Fit</span> <span class="ff-q">ⓘ</span></div>
+      <div class="ff-art" id="ffArt">🌸</div>
+      <div class="ff-name" id="ffName">Cattleya Orchid</div>
+    </div>
+
+    <div class="panel-foot">
+      <p class="pollen-note" id="pollenNote"></p>
+      <p class="disclaimer" id="disclaimer"></p>
+    </div>
+  </aside>
+</div>
+
+<div id="overlay">
+  <div class="overlay-card">
+    <header class="overlay-head">
+      <h2 id="overlayTitle"></h2>
+      <button id="overlayClose" title="Close">✕</button>
+    </header>
+    <div id="overlayBody"></div>
+  </div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
