@@ -319,6 +319,38 @@ body{
 .ov-p{font-size:14.5px;line-height:1.55;margin-bottom:12px}
 .ov-p:last-child{margin-bottom:0}
 
+/* Nature's Math lessons */
+.ov-lesson{
+  background:#fffdf6;border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;margin-bottom:14px;
+}
+.ov-lesson:last-child{margin-bottom:0}
+.ov-lesson-h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.ov-lesson-ico{
+  flex:0 0 auto;width:40px;height:40px;display:grid;place-items:center;
+  background:rgba(92,107,63,.1);border:1px solid var(--line);border-radius:10px;
+  font-size:19px;color:var(--ink);
+}
+.ov-lesson-topic{font-family:'Playfair Display',serif;font-weight:600;font-size:16.5px;color:var(--ink)}
+.ov-lesson-sp{font-size:12.5px;font-style:italic;color:var(--ink-soft)}
+.ov-step{margin-bottom:8px}
+.ov-step b{
+  display:block;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:1px;
+}
+.ov-step p{font-size:13.5px;line-height:1.5}
+.ov-task{
+  border-left:3px solid var(--green);background:rgba(92,107,63,.05);
+  border-radius:0 10px 10px 0;padding:8px 12px;margin-top:10px;margin-bottom:0;
+}
+.ov-answer{margin-top:6px}
+.ov-answer summary{
+  cursor:pointer;font-size:12.5px;font-style:italic;color:var(--green);
+  user-select:none;
+}
+.ov-answer[open] summary{color:var(--ink-soft)}
+.ov-answer p{margin-top:4px;font-weight:600}
+
 /* scrollbars */
 ::-webkit-scrollbar{width:8px}
 ::-webkit-scrollbar-thumb{background:var(--line2);border-radius:8px}

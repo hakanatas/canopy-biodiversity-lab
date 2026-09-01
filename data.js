@@ -22,7 +22,7 @@ export const UI = {
     quote: '"In every flower, a story. In every pollinator, a connection."',
     reset: 'Reset rotation', auto: 'Auto-rotate', fullscreen: 'Fullscreen',
     loading: 'Preparing specimen…',
-    rail: { home: 'Home', explore: 'Explore', notes: 'Notes', garden: 'Garden', learn: 'Learn' },
+    rail: { home: 'Home', explore: 'Explore', notes: 'Notes', garden: 'Garden', learn: 'Learn', math: 'Math' },
     factTitles: ['Species Details', 'Pollination Traits', 'Favorite Flowers', 'Range', 'Ecological Role'],
     overlay: {
       close: 'Close',
@@ -36,6 +36,17 @@ export const UI = {
           'Rainforests are layered: the sunlit Emergent tops, the dense Canopy, the shaded Understory, and the Forest Floor. Each species here lives and feeds in its own layer.',
           'This is a fan-made educational tribute — not affiliated with FIRST®. Every 3D specimen is a Creative Commons model; attribution is shown beneath each one.',
         ],
+      },
+      math: {
+        title: "Nature's Math",
+        intro: 'Every specimen in this lab hides a math lesson. Each card follows the same path: concept → nature link → worked example → your turn.',
+        labels: {
+          concept: 'Concept',
+          nature: 'In Nature',
+          example: 'Worked Example',
+          task: 'Your Turn',
+          reveal: 'Show answer',
+        },
       },
     },
   },
@@ -59,7 +70,7 @@ export const UI = {
     quote: '"Her çiçekte bir hikâye, her tozlayıcıda bir bağ vardır."',
     reset: 'Dönüşü sıfırla', auto: 'Otomatik döndür', fullscreen: 'Tam ekran',
     loading: 'Örnek hazırlanıyor…',
-    rail: { home: 'Ana Sayfa', explore: 'Keşfet', notes: 'Notlar', garden: 'Bahçe', learn: 'Öğren' },
+    rail: { home: 'Ana Sayfa', explore: 'Keşfet', notes: 'Notlar', garden: 'Bahçe', learn: 'Öğren', math: 'Matematik' },
     factTitles: ['Tür Bilgisi', 'Tozlaşma Özellikleri', 'Sevdiği Çiçekler', 'Yayılış', 'Ekolojik Rol'],
     overlay: {
       close: 'Kapat',
@@ -74,9 +85,159 @@ export const UI = {
           'Bu, hayran yapımı, eğitim amaçlı bir projedir — FIRST® ile bağlantılı değildir. Tüm 3D örnekler Creative Commons modellerdir; atıf her birinin altında gösterilir.',
         ],
       },
+      math: {
+        title: 'Doğanın Matematiği',
+        intro: 'Bu laboratuvardaki her örnek bir matematik dersi saklar. Her kart aynı yolu izler: kavram → doğa bağlantısı → çözümlü örnek → sıra sende.',
+        labels: {
+          concept: 'Kavram',
+          nature: 'Doğada',
+          example: 'Çözümlü Örnek',
+          task: 'Sıra Sende',
+          reveal: 'Cevabı göster',
+        },
+      },
     },
   },
 };
+
+// ============ Nature's Math — one structured lesson per specimen ============
+// Teaching structure per lesson: topic → concept → nature link → worked
+// example → practice task → answer. `id` matches the POLLINATORS entry.
+export const MATH_LESSONS = [
+  {
+    id: 'bees', emoji: '🐝', icon: '⬡',
+    en: {
+      topic: 'Geometry — Hexagons & Tiling',
+      concept: 'A regular hexagon has 6 equal sides and 6 equal angles. Hexagons tile a surface with no gaps, using the least wall for the most storage area.',
+      nature: 'Bees build honeycomb from hexagonal wax cells — the most material-efficient shape that still tiles perfectly.',
+      example: 'Interior angles of any hexagon sum to (6 − 2) × 180° = 720°. In a regular hexagon each angle is 720° ÷ 6 = 120°.',
+      task: 'Three honeycomb cells meet at every corner. What do their three 120° angles add up to — and why does that make the tiling gap-free?',
+      answer: '120° + 120° + 120° = 360°, a full turn — so the cells close around each corner with no gap.',
+    },
+    tr: {
+      topic: 'Geometri — Altıgenler ve Döşeme',
+      concept: 'Düzgün altıgenin 6 eş kenarı ve 6 eş açısı vardır. Altıgenler bir yüzeyi boşluksuz döşer; en az duvarla en çok depolama alanı sağlar.',
+      nature: 'Arılar peteği altıgen mum hücrelerden örer — hem kusursuz döşenen hem de en az malzeme isteyen şekil budur.',
+      example: 'Bir altıgenin iç açıları toplamı (6 − 2) × 180° = 720° eder. Düzgün altıgende her açı 720° ÷ 6 = 120° olur.',
+      task: 'Her köşede üç petek hücresi buluşur. Üç 120°’lik açının toplamı kaçtır — ve bu, döşemeyi neden boşluksuz yapar?',
+      answer: '120° + 120° + 120° = 360°, yani tam tur — hücreler her köşeyi boşluk bırakmadan kapatır.',
+    },
+  },
+  {
+    id: 'wasps', emoji: '🐝', icon: '×2',
+    en: {
+      topic: 'Numbers — Doubling & Powers',
+      concept: 'When a quantity doubles at each step, it grows as powers of 2: after n doublings you have 2ⁿ times what you started with.',
+      nature: 'A wasp colony starts with a single queen in spring; as workers raise more workers, the paper nest can double its population again and again.',
+      example: 'One doubling: 1 → 2. Three doublings: 1 → 2 → 4 → 8, which is 2³ = 8.',
+      task: 'A young nest holds 50 wasps and doubles every week. How many wasps after 4 weeks?',
+      answer: '50 × 2⁴ = 50 × 16 = 800 wasps.',
+    },
+    tr: {
+      topic: 'Sayılar — İkiye Katlama ve Kuvvetler',
+      concept: 'Bir çokluk her adımda ikiye katlanırsa 2’nin kuvvetleriyle büyür: n katlamadan sonra başlangıcın 2ⁿ katına ulaşırsın.',
+      nature: 'Yaban arısı kolonisi baharda tek bir kraliçeyle başlar; işçiler yeni işçiler büyüttükçe kâğıt yuvanın nüfusu tekrar tekrar ikiye katlanabilir.',
+      example: 'Bir katlama: 1 → 2. Üç katlama: 1 → 2 → 4 → 8, yani 2³ = 8.',
+      task: 'Genç bir yuvada 50 yaban arısı var ve sayı her hafta ikiye katlanıyor. 4 hafta sonra kaç yaban arısı olur?',
+      answer: '50 × 2⁴ = 50 × 16 = 800 yaban arısı.',
+    },
+  },
+  {
+    id: 'moths', emoji: '🌙', icon: '◑',
+    en: {
+      topic: 'Symmetry & Averages',
+      concept: 'A shape has line (mirror) symmetry when one half is the exact reflection of the other. The mean of a range is (smallest + largest) ÷ 2.',
+      nature: 'The giant peacock moth is a living mirror: each wing’s eyespot reflects its twin across the body line. Its wingspan ranges from 15 to 20 cm.',
+      example: 'A butterfly-shaped figure folded along its body line matches perfectly — that fold is the line of symmetry.',
+      task: 'Estimate a typical wingspan: what is the mean of the 15–20 cm range?',
+      answer: '(15 + 20) ÷ 2 = 17.5 cm.',
+    },
+    tr: {
+      topic: 'Simetri ve Ortalama',
+      concept: 'Bir şeklin bir yarısı diğerinin tam yansımasıysa doğru (ayna) simetrisi vardır. Bir aralığın ortalaması (en küçük + en büyük) ÷ 2 ile bulunur.',
+      nature: 'Dev tavus güvesi yaşayan bir aynadır: her kanattaki göz beneği, gövde çizgisine göre ikizini yansıtır. Kanat açıklığı 15–20 cm arasındadır.',
+      example: 'Kelebek biçimli bir şekil gövde çizgisinden katlanınca üst üste çakışır — o katlama çizgisi simetri doğrusudur.',
+      task: 'Tipik bir kanat açıklığını tahmin et: 15–20 cm aralığının ortalaması kaçtır?',
+      answer: '(15 + 20) ÷ 2 = 17,5 cm.',
+    },
+  },
+  {
+    id: 'butterflies', emoji: '🦋', icon: '⇢',
+    en: {
+      topic: 'Rate — Distance, Speed & Time',
+      concept: 'Distance, speed and time are linked: time = distance ÷ speed. Keep the units consistent and the formula does the rest.',
+      nature: 'Monarchs migrate up to 4,000 km, flying roughly 80 km on a good day — a journey so long it spans generations.',
+      example: 'A 240 km leg at 80 km per day takes 240 ÷ 80 = 3 days.',
+      task: 'At 80 km per day, how many flying days does the full 4,000 km migration take?',
+      answer: '4,000 ÷ 80 = 50 flying days.',
+    },
+    tr: {
+      topic: 'Oran — Yol, Hız ve Zaman',
+      concept: 'Yol, hız ve zaman birbirine bağlıdır: zaman = yol ÷ hız. Birimleri tutarlı seçersen gerisini formül halleder.',
+      nature: 'Kral kelebekleri 4.000 km’ye varan göç yapar; iyi bir günde yaklaşık 80 km uçarlar — yolculuk nesillere yayılacak kadar uzundur.',
+      example: '240 km’lik bir etap, günde 80 km hızla 240 ÷ 80 = 3 gün sürer.',
+      task: 'Günde 80 km ile 4.000 km’lik göçün tamamı kaç uçuş günü sürer?',
+      answer: '4.000 ÷ 80 = 50 uçuş günü.',
+    },
+  },
+  {
+    id: 'beetles', emoji: '🪲', icon: '%',
+    en: {
+      topic: 'Fractions & Percentages',
+      concept: 'A fraction compares a part to a whole; multiply by 100 to express it as a percentage.',
+      nature: 'Beetles are the most diverse animal group on Earth — roughly 400,000 named species, about one quarter of all known animal species.',
+      example: '1/4 as a percentage: (1 ÷ 4) × 100 = 25%.',
+      task: 'Of about 1,000,000 named insect species, 400,000 are beetles. What percentage is that?',
+      answer: '(400,000 ÷ 1,000,000) × 100 = 40%.',
+    },
+    tr: {
+      topic: 'Kesirler ve Yüzdeler',
+      concept: 'Kesir, parçayı bütünle karşılaştırır; 100 ile çarparak yüzdeye çevirirsin.',
+      nature: 'Böcekler yeryüzünün en çeşitli hayvan grubudur — adlandırılmış yaklaşık 400.000 tür, bilinen tüm hayvan türlerinin dörtte biri kadar.',
+      example: '1/4’ün yüzdesi: (1 ÷ 4) × 100 = %25.',
+      task: 'Adlandırılmış yaklaşık 1.000.000 böcek türünün 400.000’i kın kanatlıdır. Bu yüzde kaçtır?',
+      answer: '(400.000 ÷ 1.000.000) × 100 = %40.',
+    },
+  },
+  {
+    id: 'hummingbirds', emoji: '🐦', icon: '♒',
+    en: {
+      topic: 'Frequency & Big Multiplication',
+      concept: 'Frequency counts events per unit of time. To change the time unit, multiply: per-second × 60 gives per-minute.',
+      nature: 'A ruby-throated hummingbird beats its wings up to 80 times every second — too fast for the eye, easy for arithmetic.',
+      example: '80 beats/second × 60 = 4,800 beats per minute.',
+      task: 'How many wingbeats in a 5-minute feeding flight at 80 beats per second?',
+      answer: '80 × 60 × 5 = 24,000 wingbeats.',
+    },
+    tr: {
+      topic: 'Frekans ve Büyük Sayılarla Çarpma',
+      concept: 'Frekans, birim zamandaki olay sayısıdır. Zaman birimini değiştirmek için çarparsın: saniyedeki × 60, dakikadakini verir.',
+      nature: 'Yakut boğazlı sinekkuşu kanatlarını saniyede 80 kez çırpar — göz için çok hızlı, aritmetik için çok kolay.',
+      example: 'Saniyede 80 çırpış × 60 = dakikada 4.800 çırpış.',
+      task: 'Saniyede 80 çırpışla 5 dakikalık bir beslenme uçuşunda kaç kanat çırpışı olur?',
+      answer: '80 × 60 × 5 = 24.000 kanat çırpışı.',
+    },
+  },
+  {
+    id: 'bats', emoji: '🦇', icon: '∿',
+    en: {
+      topic: 'Measurement — Speed of Sound',
+      concept: 'Sound travels about 340 metres per second. An echo covers the distance twice (there and back), so distance = (speed × time) ÷ 2.',
+      nature: 'Nectar bats navigate the dark with echolocation: they call, listen for the echo, and time it to map cactus flowers ahead.',
+      example: 'An echo returning after 0.02 s: (340 × 0.02) ÷ 2 = 3.4 m to the flower.',
+      task: 'A bat hears its echo 0.1 seconds after calling. How far away is the saguaro?',
+      answer: '(340 × 0.1) ÷ 2 = 17 metres.',
+    },
+    tr: {
+      topic: 'Ölçme — Sesin Hızı',
+      concept: 'Ses saniyede yaklaşık 340 metre yol alır. Yankı mesafeyi iki kez kat eder (gidiş-dönüş), bu yüzden mesafe = (hız × süre) ÷ 2.',
+      nature: 'Nektar yarasaları karanlıkta ekolokasyonla yön bulur: seslenir, yankıyı dinler ve süresini ölçerek öndeki kaktüs çiçeklerinin haritasını çıkarır.',
+      example: '0,02 saniyede dönen yankı: (340 × 0,02) ÷ 2 = çiçeğe 3,4 m.',
+      task: 'Bir yarasa seslendikten 0,1 saniye sonra yankıyı duyuyor. Sagualo kaktüsü ne kadar uzakta?',
+      answer: '(340 × 0,1) ÷ 2 = 17 metre.',
+    },
+  },
+];
 
 // Per-species content. `latin` is shared; everything else has en/tr.
 export const POLLINATORS = [

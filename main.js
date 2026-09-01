@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from './lib/OrbitControls.js';
 import { GLTFLoader } from './lib/GLTFLoader.js';
-import { POLLINATORS, UI } from './data.js';
+import { POLLINATORS, UI, MATH_LESSONS } from './data.js';
 import { BUILDERS } from './models.js';
 
 let lang = 'en';
@@ -465,6 +465,24 @@ function renderOverlay() {
   } else if (overlayMode === 'learn') {
     overlayTitle.textContent = o.learn.title;
     overlayBody.innerHTML = o.learn.body.map(par => `<p class="ov-p">${par}</p>`).join('');
+  } else if (overlayMode === 'math') {
+    const L = o.math.labels;
+    overlayTitle.textContent = o.math.title;
+    overlayBody.innerHTML = `<p class="ov-intro">${o.math.intro}</p>` +
+      MATH_LESSONS.map(m => {
+        const d = m[lang];
+        return `<div class="ov-lesson">
+          <div class="ov-lesson-h"><span class="ov-lesson-ico">${m.icon}</span>
+            <div><div class="ov-lesson-topic">${d.topic}</div>
+            <div class="ov-lesson-sp">${m.emoji} ${POLLINATORS.find(p => p.id === m.id)[lang].name}</div></div></div>
+          <div class="ov-step"><b>${L.concept}</b><p>${d.concept}</p></div>
+          <div class="ov-step"><b>${L.nature}</b><p>${d.nature}</p></div>
+          <div class="ov-step"><b>${L.example}</b><p>${d.example}</p></div>
+          <div class="ov-step ov-task"><b>${L.task}</b><p>${d.task}</p>
+            <details class="ov-answer"><summary>${L.reveal}</summary><p>${d.answer}</p></details>
+          </div>
+        </div>`;
+      }).join('');
   }
 }
 document.querySelectorAll('#rail .rail-btn').forEach(b => {
