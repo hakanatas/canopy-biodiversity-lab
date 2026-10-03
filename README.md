@@ -13,7 +13,8 @@ nod to the real pollinators explored here.
 - **360° 3D viewer** — rotation slider, auto-rotate, zoom, fullscreen; animated models play their own wing/flight animations.
 - **Bilingual (TR / EN)** — one-click language toggle for the whole interface *and* content.
 - **Field-guide panel** — family, traits, favourite flowers, range, ecological role, and a **forest-layer** indicator (Emergent · Canopy · Understory · Forest Floor).
-- **Explore menu** — *Garden* (plant ↔ pollinator pairings), *Notes* (field discoveries), *Learn* (about the season).
+- **Explore menu** — *Garden* (plant ↔ pollinator pairings), *Notes* (field discoveries), *Learn* (about the season), *Math* (Nature's Math lessons).
+- **Nature's Math** — a structured math-teaching module: one bilingual lesson per specimen (hexagons, doubling, symmetry, rates, percentages, frequency, speed of sound), each following *concept → nature link → worked example → practice task → hidden answer*.
 - **Responsive** — three-column desktop layout that stacks into a single scroll column on narrow screens.
 
 ## 🚀 Run it
